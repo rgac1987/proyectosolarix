@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solarix - Impulsando tu futuro con energía solar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="imagenes/logo.jpeg" alt="Solarix Logo">
+                    <span class="logo-text">Impulsando tu futuro con energía solar</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#simulador">Simulador</a></li>
+                    <li><a href="#educacion">Educación</a></li>
+                    <li><a href="#compras">Compras</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Energía Solar para un Futuro Sostenible</h1>
+            <p>Descubre cómo la energía solar puede transformar tu hogar, negocio o industria con nuestros paneles de alta calidad y sistemas fotovoltaicos personalizados.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('simulador')">Calcular Ahorro</button>
+                <button class="btn-secondary" onclick="scrollToSection('productos')">Ver Productos</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="imagenes/paneles.jpg" alt="Instalación de Paneles Solares">
+        </div>
+    </section>
+
+    <!-- Carrusel de Productos -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <h2>Nuestros Productos Solares</h2>
+            <div class="products-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="product-card active">
+                            <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Paneles Monocristalinos">
+                            <h3>Paneles Monocristalinos</h3>
+                            <p>Máxima eficiencia energética con tecnología de vanguardia. Ideales para espacios limitados.</p>
+                            <ul>
+                                <li>Eficiencia: 20-22%</li>
+                                <li>Garantía: 25 años</li>
+                                <li>Vida útil: 30+ años</li>
+                            </ul>
+                            <button class="btn-product" onclick="showProductDetails('monocristalino')">Más Información</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959f3b7b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Paneles Policristalinos">
+                            <h3>Paneles Policristalinos</h3>
+                            <p>Excelente relación calidad-precio. Perfectos para instalaciones residenciales y comerciales.</p>
+                            <ul>
+                                <li>Eficiencia: 15-17%</li>
+                                <li>Garantía: 25 años</li>
+                                <li>Vida útil: 25+ años</li>
+                            </ul>
+                            <button class="btn-product" onclick="showProductDetails('policristalino')">Más Información</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sistemas de Almacenamiento">
+                            <h3>Sistemas de Almacenamiento</h3>
+                            <p>Baterías de litio para almacenar energía solar y usarla cuando la necesites.</p>
+                            <ul>
+                                <li>Capacidad: 5-20 kWh</li>
+                                <li>Garantía: 10 años</li>
+                                <li>Eficiencia: 95%</li>
+                            </ul>
+                            <button class="btn-product" onclick="showProductDetails('almacenamiento')">Más Información</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Inversores">
+                            <h3>Inversores Inteligentes</h3>
+                            <p>Convierten la energía solar en electricidad usable para tu hogar o negocio.</p>
+                            <ul>
+                                <li>Eficiencia: 97%</li>
+                                <li>Monitoreo: App móvil</li>
+                                <li>Garantía: 10 años</li>
+                            </ul>
+                            <button class="btn-product" onclick="showProductDetails('inversor')">Más Información</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulador de Ahorro -->
+    <section id="simulador" class="simulator-section">
+        <div class="container">
+            <h2>Simulador de Ahorro Solar</h2>
+            <p>Calcula cuánto puedes ahorrar con energía solar</p>
+            <div class="simulator-container">
+                <div class="simulator-form">
+                    <div class="form-group">
+                        <label for="consumo">Consumo mensual (kWh):</label>
+                        <input type="number" id="consumo" placeholder="Ej: 500" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="tarifa">Tarifa actual ($/kWh):</label>
+                        <input type="number" id="tarifa" placeholder="Ej: 800" min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de instalación:</label>
+                        <select id="tipo">
+                            <option value="residencial">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="industrial">Industrial</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" onclick="calcularAhorro()">Calcular Ahorro</button>
+                </div>
+                <div class="simulator-results" id="simulator-results">
+                    <h3>Resultados del Simulador</h3>
+                    <div class="result-item">
+                        <span class="result-label">Ahorro mensual:</span>
+                        <span class="result-value" id="ahorro-mensual">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Ahorro anual:</span>
+                        <span class="result-value" id="ahorro-anual">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Retorno de inversión:</span>
+                        <span class="result-value" id="retorno">0 años</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">CO₂ evitado anual:</span>
+                        <span class="result-value" id="co2">0 kg</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Paneles necesarios:</span>
+                        <span class="result-value" id="paneles">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Educativa -->
+    <section id="educacion" class="education-section">
+        <div class="container">
+            <h2>¿Cómo Funciona la Energía Solar?</h2>
+            <div class="education-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>1. Captación Solar</h3>
+                    <p>Los paneles solares capturan la luz del sol y la convierten en energía eléctrica de corriente continua.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>2. Conversión</h3>
+                    <p>El inversor convierte la energía de corriente continua a corriente alterna para uso doméstico.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>3. Distribución</h3>
+                    <p>La energía se distribuye por tu hogar o negocio, reduciendo tu dependencia de la red eléctrica.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>4. Monitoreo</h3>
+                    <p>Puedes monitorear tu producción y consumo en tiempo real a través de nuestra aplicación móvil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Compras -->
+    <section id="compras" class="purchase-section">
+        <div class="container">
+            <h2>Compra tus Paneles Solares</h2>
+            <div class="purchase-grid">
+                <div class="purchase-card">
+                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Kit Básico">
+                    <h3>Kit Básico Residencial</h3>
+                    <p>4 paneles monocristalinos + inversor</p>
+                    <div class="price">$8,500,000</div>
+                    <button class="btn-purchase" onclick="addToCart('kit-basico', 8500000)">Agregar al Carrito</button>
+                </div>
+                <div class="purchase-card">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959f3b7b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Kit Intermedio">
+                    <h3>Kit Intermedio Residencial</h3>
+                    <p>8 paneles + inversor + batería</p>
+                    <div class="price">$15,000,000</div>
+                    <button class="btn-purchase" onclick="addToCart('kit-intermedio', 15000000)">Agregar al Carrito</button>
+                </div>
+                <div class="purchase-card">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Kit Premium">
+                    <h3>Kit Premium Residencial</h3>
+                    <p>12 paneles + inversor + 2 baterías</p>
+                    <div class="price">$22,000,000</div>
+                    <button class="btn-purchase" onclick="addToCart('kit-premium', 22000000)">Agregar al Carrito</button>
+                </div>
+            </div>
+            
+            <!-- Carrito de Compras -->
+            <div class="cart-section" id="cart-section" style="display: none;">
+                <h3>Carrito de Compras</h3>
+                <div class="cart-items" id="cart-items"></div>
+                <div class="cart-total">
+                    <span>Total: $<span id="cart-total">0</span></span>
+                </div>
+                <div class="payment-methods">
+                    <h4>Métodos de Pago</h4>
+                    <div class="payment-options">
+                        <button class="payment-btn" onclick="showPaymentForm('tarjeta')">
+                            <i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito
+                        </button>
+                        <button class="payment-btn" onclick="showPaymentForm('nequi')">
+                            <i class="fas fa-mobile-alt"></i> Nequi
+                        </button>
+                        <button class="payment-btn" onclick="showPaymentForm('paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </button>
+                        <button class="payment-btn" onclick="showPaymentForm('transferencia')">
+                            <i class="fas fa-university"></i> Transferencia Bancaria
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>¿Qué es la energía solar y cómo funciona?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La energía solar es una fuente de energía renovable que convierte la luz del sol en electricidad mediante paneles fotovoltaicos. Los paneles capturan fotones de la luz solar y los convierten en corriente eléctrica que puede ser utilizada en tu hogar o negocio.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>¿Cuánto tiempo dura la instalación?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Una instalación residencial típica toma entre 1-3 días, dependiendo del tamaño del sistema. Las instalaciones comerciales pueden tomar de 1-2 semanas. Incluimos la instalación completa, conexión y puesta en marcha.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>¿Qué garantías ofrecen?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ofrecemos 25 años de garantía en los paneles solares, 10 años en inversores y 2 años en la instalación. Además, incluimos mantenimiento preventivo gratuito durante el primer año.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>¿Hay opciones de financiación?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos diferentes opciones de financiación: crédito directo con nosotros, convenios con bancos, leasing y pago a plazos. Las tasas de interés son competitivas y adaptadas a tu perfil crediticio.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>¿Cuánto puedo ahorrar con energía solar?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El ahorro promedio es del 70-90% en la factura de electricidad. En algunos casos, puedes llegar a ahorrar hasta el 100%. El retorno de inversión típico es de 4-6 años, y después de eso, la energía es prácticamente gratuita.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+57 323 806 2816</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@solarix.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bogotá, Colombia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun - Vie: 8:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Solicita tu Cotización</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Tipo de consulta</option>
+                                <option value="residencial">Residencial</option>
+                                <option value="comercial">Comercial</option>
+                                <option value="industrial">Industrial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Mensaje" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar Consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Solarix</h3>
+                    <p>Impulsando tu futuro con energía solar</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Productos</h4>
+                    <ul>
+                        <li><a href="#productos">Paneles Solares</a></li>
+                        <li><a href="#productos">Sistemas de Almacenamiento</a></li>
+                        <li><a href="#productos">Inversores</a></li>
+                        <li><a href="#compras">Kits Completos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#educacion">Asesoría Técnica</a></li>
+                        <li><a href="#simulador">Simulador de Ahorro</a></li>
+                        <li><a href="#contacto">Instalación</a></li>
+                        <li><a href="#contacto">Mantenimiento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>+57 323 806 2816</p>
+                    <p>info@solarix.com</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Solarix. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/573238062816" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Modal de Producto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Pago -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="payment-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
