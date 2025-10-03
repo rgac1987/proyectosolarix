@@ -435,22 +435,65 @@ function scrollToSection(sectionId) {
 // Formulario de contacto
 function initializeContactForm() {
     const form = document.getElementById('contact-form');
+    const messagesDiv = document.getElementById('form-messages');
+    
+    // Verificar si hay parámetros de éxito en la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        showFormMessage('¡Gracias por tu consulta! Nos pondremos en contacto contigo pronto.', 'success');
+    }
+    
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Simular envío del formulario
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+        // Mostrar mensaje de carga
+        showFormMessage('Enviando consulta...', 'info');
         
-        // Mostrar mensaje de confirmación
-        alert('¡Gracias por tu consulta! Nos pondremos en contacto contigo pronto.');
+        // Deshabilitar el botón de envío
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
         
-        // Limpiar formulario
-        form.reset();
-        
-        // Aquí se enviaría la información al servidor
-        console.log('Datos del formulario:', data);
+        // Enviar formulario a Formspree
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                showFormMessage('¡Gracias por tu consulta! Nos pondremos en contacto contigo pronto.', 'success');
+                form.reset();
+                // Redirigir a la página de éxito
+                window.location.href = window.location.pathname + '?success=true';
+            } else {
+                throw new Error('Error al enviar el formulario');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showFormMessage('Hubo un error al enviar tu consulta. Por favor, inténtalo de nuevo o contáctanos por WhatsApp.', 'error');
+        })
+        .finally(() => {
+            // Rehabilitar el botón de envío
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Consulta';
+        });
     });
+}
+
+function showFormMessage(message, type) {
+    const messagesDiv = document.getElementById('form-messages');
+    messagesDiv.innerHTML = `<div class="form-message form-message-${type}">${message}</div>`;
+    
+    // Auto-ocultar mensaje después de 5 segundos (excepto errores)
+    if (type !== 'error') {
+        setTimeout(() => {
+            messagesDiv.innerHTML = '';
+        }, 5000);
+    }
 }
 
 // Animaciones

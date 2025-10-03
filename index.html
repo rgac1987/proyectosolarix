@@ -336,18 +336,18 @@
                 </div>
                 <div class="contact-form">
                     <h3>Solicita tu Cotización</h3>
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/meorkejb" method="POST">
                         <div class="form-group">
-                            <input type="text" placeholder="Nombre completo" required>
+                            <input type="text" name="nombre" placeholder="Nombre completo" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Correo electrónico" required>
+                            <input type="email" name="email" placeholder="Correo electrónico" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Teléfono" required>
+                            <input type="tel" name="telefono" placeholder="Teléfono" required>
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select name="tipo_consulta" required>
                                 <option value="">Tipo de consulta</option>
                                 <option value="residencial">Residencial</option>
                                 <option value="comercial">Comercial</option>
@@ -355,10 +355,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Mensaje" rows="4"></textarea>
+                            <textarea name="mensaje" placeholder="Mensaje" rows="4"></textarea>
                         </div>
+                        <input type="hidden" name="_subject" value="Nueva consulta desde Solarix">
+                        <input type="hidden" name="_replyto" value="">
+                        <input type="hidden" name="_next" value="?success=true">
                         <button type="submit" class="btn-primary">Enviar Consulta</button>
                     </form>
+                    <div id="form-messages" style="margin-top: 1rem;"></div>
                 </div>
             </div>
         </div>
@@ -433,5 +437,10 @@
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- Chatbase Chatbot -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Hf1xLqsTjPovr6g1aT6st";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 </body>
 </html>
